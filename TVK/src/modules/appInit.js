@@ -1,10 +1,11 @@
 import express from 'express';
 import winston from 'winston';
+import extend from 'extend';
 
 
 
 const ApiServer = function(config) {
-    this.config = extends(true, ApiServer.defaultConfig,config)
+    this.config = extend(true, ApiServer.defaultConfig,config)
 };
 
 ApiServer.defaultConfig = {
@@ -31,7 +32,6 @@ ApiServer.prototype.init = function()
     }
 
     app.use((req,res, next) =>
-    {
         req.APP = req.APP || {};
         req.APP.startTime = process.hrtime();
         req.APP.logger = new winston.createLogger({
@@ -46,15 +46,13 @@ ApiServer.prototype.init = function()
           });
           next();
     });
-    this.logger.info('Adding routes...');
-
 
     let initializers = Promise.all( this.config.apiRoutePaths.map((path) => {
         return includeApis(path,app);
     }));
 
     return initializers.then(() =>{
-        this.logger.info('API Server started.');
+
         this.server = app.listen(this.config.port);
         return Promise.resolve(this.server);
     });

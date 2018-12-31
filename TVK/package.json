@@ -12,12 +12,20 @@
     "format": "noderize-scripts format",
     "test": "noderize-scripts test",
     "lint": "noderize-scripts lint",
-    "clean": "noderize-scripts clean"
+    "clean": "noderize-scripts clean",
+    "dev": "NODE_ENV=develop nodemon --exec npm run babel-node -- ./src/index.js"
   },
   "devDependencies": {
-    "@noderize/scripts": "^0.7.5"
+    "@noderize/scripts": "^0.7.5",
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "rimraf": "^2.6.2"
   },
   "dependencies": {
-    "@noderize/runtime": "^0.7.5"
+    "@noderize/runtime": "^0.7.5",
+    "bluebird": "^3.5.3",
+    "express": "^4.16.4",
+    "extend": "^3.0.2",
+    "winston": "^3.1.0"
   }
 }
