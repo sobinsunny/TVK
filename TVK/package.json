@@ -6,19 +6,12 @@
   "author": "Sobin",
   "licence": "JW.org",
   "scripts": {
-    "watch": "noderize-scripts watch",
-    "build": "noderize-scripts build",
-    "start": "noderize-scripts start",
-    "format": "noderize-scripts format",
-    "test": "noderize-scripts test",
-    "lint": "noderize-scripts lint",
-    "clean": "noderize-scripts clean",
-    "dev": "NODE_ENV=develop nodemon --exec npm run babel-node -- ./src/index.js"
+    "dev": "NODE_ENV=develop nodemon --exec npm run ./node_modules/.bin/babel-node -- ./src/index.js"
   },
   "devDependencies": {
-    "@noderize/scripts": "^0.7.5",
     "babel-cli": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
+    "nodemon": "^1.18.9",
     "rimraf": "^2.6.2"
   },
   "dependencies": {

@@ -1,0 +1,32 @@
+{
+  "name": "tvk_app",
+  "version": "1.0.0",
+  "description": "App to support feild service",
+  "main": "index.js",
+  "scripts": {
+    "babel-node": "babel-node --presets=latest",
+    "test": "test",
+    "dev": "NODE_ENV=develop nodemon --exec npm run babel-node -- src/index.js",
+    "build": "npm run clan-build && babel src -d dist/src/",
+    "run-build": "node dist/src/index.js ",
+    "clan-build": "rimraf dist"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "nodemon": "^1.18.9"
+  },
+  "dependencies": {
+    "babel-plugin-remove-comments": "^2.0.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "bluebird": "^3.5.3",
+    "express": "^4.16.4",
+    "extend": "^3.0.2",
+    "rimraf": "^2.6.3",
+    "winston": "^3.1.0"
+  }
+}
